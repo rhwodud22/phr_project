@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- <script src="http://code.jquery.com/jquery-migrate-3.0.0.js"></script> -->
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <style>
+        textarea::-webkit-input-placeholder {
+            font-size: 1rem;
+        }
+
+        textarea::-moz-placeholder {
+            font-size: 1rem;
+        }
+
+        textarea:-ms-input-placeholder {
+            font-size: 1rem;
+        }
+
+        textarea:-moz-placeholder {
+            font-size: 1rem;
+        }
+
+        textarea::placeholder {
+            font-size: 1rem;
+        }
+    </style>
+
+<body>
+    <div class="container">
+
+        <h1 style="margin-top:20px;">공지사항</h1>
+
+        <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#myModal"
+                style="margin-top:20px;">공지사항 등록</button>
+        </div>
+
+        <!-- 공지사항 등록 Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">공지사항 등록</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form>
+                            <table class="table table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <td>카테고리</td>
+                                        <td>
+                                            <div class="input-group wrap-input100-select" style="width:20%;">
+                                                <select class="custom-select" id="inputGroupSelect"
+                                                    aria-label="Example select with ur">
+                                                    <option selected>공지사항</option>
+                                                    <option valued="1">업데이트 </option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>제목</td>
+                                        <td><input class="form-control" id="title" type="text"
+                                                placeholder="제목을 입력해 주세요."></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="exampleFormControlTextarea1">내용</label></td>
+                                        <td>
+                                            <div class="form-group">
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                                    placeholder="공지사항의 내용을 입력해 주세요."></textarea>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>기간설정</td>
+                                        <td>
+                                            <div class="wrap-date-picker">
+                                                <input class="date-picker" id="startDate" type="text"
+                                                    placeholder="시작일" /> ~
+                                                <input class="date-picker" id="endDate" type="text" placeholder="종료일" />
+                                                <!-- ie가 input type="date"를 지원을 하지않아 "text"로 통일-->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn_cancel btn btn-default" data-dismiss="modal">닫기</button>
+                        <button type="button" class="btn_save btn btn-primary">저장</button>
+                    </div>
+
+                </div> <!-- /.modal-content -->
+            </div> <!-- /.modal-dialog -->
+        </div> <!-- /.modal-content -->
+
+
+        
+        <table class="table table-hover" style="margin-top:30px">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>등록일</th>
+                    <th>카테고리</th>
+                    <th>제목</th>
+                    <th>노출기간</th>
+                    <th>작성자</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% board.forEach(function(val){ %>
+                <tr>
+                    <td><%= val.no %></td>
+                    <td><%= val.createdAt %></td>
+                    <td><%= val.category %></td>
+                    <td><%= val.title %></td>
+                    <td><%= val.exposeAt %></td>
+                    <td><%= val.user_name %></td>
+                </tr>
+            </tbody>
+            <% }); %>
+        </table>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="#">이전</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">다음</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- <script src="js/board.js"></script> -->
+
+    <script>
+        // if ($('[type="date"]').prop('type') != 'date') {
+        $('.date-picker').datepicker({
+            showOn: 'button',
+            buttonImage: 'images/phr_web_icon_qna.png' // 24 * 24
+            // autoSize: true
+        });
+
+        /* Korean initialisation for the jQuery calendar extension. */
+        /* Written by DaeKwon Kang (ncrash.dk@gmail.com), Edited by Genie and Myeongjin Lee. */
+        (function (factory) {
+            if (typeof define === "function" && define.amd) {
+
+                // AMD. Register as an anonymous module.
+                define(["../widgets/datepicker"], factory);
+            } else {
+
+                // Browser globals
+                factory(jQuery.datepicker);
+            }
+        }(function (datepicker) {
+
+            datepicker.regional.ko = {
+                closeText: "닫기",
+                prevText: "이전달",
+                nextText: "다음달",
+                currentText: "오늘",
+                monthNames: ["1월", "2월", "3월", "4월", "5월", "6월",
+                    "7월", "8월", "9월", "10월", "11월", "12월"],
+                monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월",
+                    "7월", "8월", "9월", "10월", "11월", "12월"],
+                dayNames: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
+                dayNamesShort: ["일", "월", "화", "수", "목", "금", "토"],
+                dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"],
+                weekHeader: "주",
+                dateFormat: "yy. m. d.",
+                firstDay: 0,
+                isRTL: false,
+                showMonthAfterYear: true,
+                yearSuffix: "년"
+            };
+            datepicker.setDefaults(datepicker.regional.ko);
+
+            return datepicker.regional.ko;
+
+        }));
+        // }
+
+        $('.btn_cancel').click(function () {
+            $('#title').val('');
+            $('#exampleFormControlTextarea1').val('');
+            $('#startDate').val('');
+            $('#endDate').val('');
+            $('#inputGroupSelect option:selected').val('');
+        });
+
+        $('.btn_save').click(function () {
+            var category = $('.form-control').find(":selected").val();
+            // var title = $('input[id="title"]').val();
+            var content = $('textarea[id="exampleFormControlTextarea1"]').val();
+            var title = $('input[id="title"]').val();
+            var b = $('.form-control').find(":selected").val();
+            // console.log('this is selected: ' + b + ' ---- and this is text input: ' + a)
+            if (a === b) {
+                // do something
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+html {
+	height:100%; 
+	max-height:100%; 
+	padding:0; 
+	margin:0; 
+	border:0; 
+	background:#fff; 
+	font-size:76%; 
+	font-family:georgia, palatino linotype, times new roman, serif;
+	/* hide overflow:hidden from IE5/Mac */ 
+	/* \*/ 
+	overflow: hidden; 
+	/* */ 
+}
+	
+	body {
+		height:100%; 
+		max-height:100%; 
+		overflow:hidden; 
+		padding:0; 
+		margin:0; 
+		border:0;
+	}
+	
+	#left1, #left2, #left3, #left4 {
+		position:absolute; 
+		height:100%; 
+		left:0;  
+		font-size:1em;
+	}
+	
+	.dropdown-menu{
+		transform: translate3d(31px, -100%, 0px);
+	}
+
+	#left1 {width:4%; left:0; background:#e8eee2; padding-top:1em;}
+	#left2 {width:20%; left:4%;}
+	#left3 {width:56%; left:24%;}
+	#left4 {width:20%; left:80%; background:#e7e1ec;}
+	
+	.inner {display:block; padding:0 10px 10px 10px;}
+	.bold {font-size:1.5em; font-weight:bold;}
+
+	h3{
+		margin: 0;
+	}
+	a:visited { color: black; text-decoration: none;}
+	
+	#left2_table{
+		padding-left:20px;
+		position:absolute; 
+		height:80%;
+		width:100%;
+		left: 0;
+		overflow: auto;
+		font-size:1.2em;
+	}
+
+	#left3{
+		position:absolute;
+		overflow:hidden;
+		height:100%;
+	}
+	.left3_tab{
+		overflow:auto;
+		height:80%;
+		position:absolute;
+		width:99%;
+	}
+	/* #left3_item1{
+		position:absolute; 
+		height:30%;
+		width:100%;
+		left: 0;
+	}
+
+	#left3_item2{
+		overflow: auto;
+		position:absolute; 
+		height:80%;
+		width:100%;
+		top:20%;
+		left:0;  
+	} */
+
+	.memo{
+		padding: 30px 10px 10px;
+		font-size: 1.5em;
+		text-align: center;
+		/* border-bottom: 2px gray solid; */
+	}
+
+	#s_menu_it{
+		padding: 15px;
+		display: inline-block;
+	}
+
+	.s_menu_it_data{
+		background-color:#808080;
+		margin:auto;
+		color:#fff;
+		padding: 5px 10px;
+		font-size: 14px;
+	}
+
+	.s_menu_it_msg{
+		padding: 20px 0px 10px 25px;
+		font-size: 14px;
+	}
+
+	.s_menu_it_data2{
+		background-color:#808080;
+		display: inline-block;
+		margin:5px;
+		padding: 5px 10px;
+		font-size:14px;
+	}
+
+	/* tap */
+	button {
+		background:none;
+		border:0;
+		outline:0;
+		cursor:pointer;
+	  }
+	  .tab_menu_container {
+		display:flex;
+	  }
+	  .tab_menu_btn {
+		width:200px;
+		height:40px;
+		font-size: 18px;
+		margin: 0 auto;
+		transition:0.3s all;
+		border-bottom: 2px solid #adc3d3;
+	  }
+	  .tab_menu_btn.on {
+		/* border-bottom:2px solid #adc3d3; */
+		/* font-weight:700; */
+		color:#fff;
+		background-color:lightblue;
+	  }
+	  .tab_menu_btn:hover {
+		color:#fff;
+	  }
+	  .tab_box {
+		display:none;
+		padding:20px;
+	  }
+	  .tab_box.on {
+		display:block;
+	  }
+
+	  /* text next to horizon line 심장질환 '관심' 및 '주의' 발견 옆 수평선 */
+	  .hr-sect {
+		display: flex;
+		flex-basis: 100%;
+		align-items: center;
+		color: #000;
+		font-size: 1.2rem;
+		margin: 8px 0px;
+		font-weight: bold;
+	}
+	.hr-sect::before,
+	.hr-sect::after {
+		content: "";
+		flex-grow: 2;
+		background: rgba(0, 0, 0, 0.35);
+		height: 2px;
+		font-size: 0px;
+		line-height: 0px;
+		margin: 0px 16px;
+	}
+
+	/* QnA 수직선(세로선) */
+	.verticalLine {
+		border-left: 3px solid #000;
+	}
+	
+	/* 말줄임표 */
+	.btn_more {            
+		display: block;
+		text-align: center; 
+		font-size: 0.8em; 
+		color: #000;
+	}
+
+	.SynopsisText {
+		font-size: 1em;
+		width: 100%;
+		height: 3em;
+		text-overflow: ellipsis;
+		line-height: 1.5;
+		word-wrap: break-word;
+		
+		/*webkit브라우저를 제외한 나머지 브라우저를 위한 처리*/
+		/* 줄간격이 15.6px이며 3줄만 보여지기를 원함으로 곱하기 3을 하여 높이를 지정*/
+		overflow: hidden; /*영역을 벗어나는 내용은 안보여지게 처리*/
+
+		/*webkit브라우저*/
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="css/timeline.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+	<link rel="stylesheet" type="text/css" href="css/util.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<!-- <script src="https://unpkg.com/wavesurfer.js"></script> -->
+	<style>
+		button:focus {
+			outline:none;
+		}
+		
+		:focus {
+			outline: none;
+		}
+		#left3_table{
+			width:60%;
+			/* margin-left:10px; */
+		}
+		#left3_table td, #left3_table th {
+			padding: 0.6rem;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="left1">
+		<div class="inner">
+			<!-- Service Logo IMG-->
+			<div>
+				<img src="images/phr_web_icon_heartlog.png" style="width:100%;">
+			</div>
+			<!-- notice -->
+			<div class="p-t-600">
+				<img src="images/phr_web_img_notice.png" style="width:80%;">
+				&nbsp;공지사항
+			</div> 
+			<!-- Version Managing-->					  
+			<div>
+				<img src="images/phr_web_img_version.png" style="width:80%;">
+				&nbsp;사전등록
+			</div>
+			<!-- Profill IMG--> <!-- 클릭시 dropright --> 
+			<div class="btn-group dropright"> 
+				<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<img src="images/phr_web_img_profile.png" style="width:80%;">
+				</button>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="https://www.google.com">최성은</a>
+					<a class="dropdown-item" style="font-size: 8px;">휴레이포지티브</a>
+					<br />
+                	<a class="dropdown-item">계정정보</a>
+                	<hr>
+					<a class="dropdown-item">로그아웃</a>
+				</div>
+			</div>
+			&nbsp;&nbsp;프로필
+			
+		</div>
+	</div>
+
+
+	<div id="left2">
+		<div class="inner">
+			<div class="py-5 px-3">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="이름 또는 아이디로 검색" aria-label="Recipient's username" aria-describedby="button-addon2">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button" id="button-addon2">
+							검색하기
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="pl-4"><h5><p>고객 목록</p></h5></div>
+			<div id="left2_table">
+				<table class="table table-hover table-borderless">
+					<% users.forEach(function(val){ %>
+						<tr>  
+							<td><%= val.user_name %></td>
+							<td><%= val.user_age %></td>
+							<td><%= val.user_id %></td>
+							<!-- User Search -> Qna Alert -->
+							<!-- <td><i class="fa fa-bell-o"></i></td> -->
+							<td><img src="images/phr_web_icon_qna.png"></i></td> 
+						</tr>
+					<% }) %>
+                </table>
+            </div>
+        </div>
+	</div>
+
+
+	<div id="left3">
+		<div class="inner pt-4">
+			<div class="p-4" style="font-size: 1.5em">
+				<strong>김다희</strong>
+				<span>&nbsp;&nbsp;abc02</span>
+			</div>
+	
+			<div class="px-5">
+				<table class="table table-borderless" id="left3_table">
+					<tr>
+						<th>나이</th>
+						<td>54(남)</td>
+						<th>키/체중/BMI</th>
+						<td>165cm/62kg/22</td>
+						<th>가입일</th>
+						<td>2020.07.01</td>
+					</tr>
+					<tr>
+						<th>전화번호</th>
+						<td>010-****-9874</td>
+						<th>임상유형</th>
+						<td>내원</td>
+						<th>최근 로그인</th>
+						<td>2020.08.01 안드로이드</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="left3_tab">
+				<div class="tab_wrap">
+					<div class="tab_menu_container pt-4">
+						<button class="tab_menu_btn on" type="button">심장청진음</button>
+						<button class="tab_menu_btn" type="button">리포트</button>
+						<button class="tab_menu_btn" type="button">QnA(기술상담)</button>
+					</div> <!-- tab_menu_container e -->
+			
+					<div class="tab_box_container">
+			
+						<!-- 메뉴1 내용-->
+						<!-- 심장청진음 -->
+						<div class="tab_box on">
+			
+							<!--switch 버튼-->
+							<div class="custom-control custom-switch d-flex flex-row-reverse bd-highlight pr-5 m-b-10"
+								style="font-size:1.2em;">
+								<input type="checkbox" class="custom-control-input" id="customSwitch1">
+								<label class="custom-control-label" for="customSwitch1">'양호' 기록 제외</label>
+							</div>
+			
+							<ul class="cbp_tmtimeline">
+								<li>
+									<div class="cbp_tmicon">
+										<!-- <div class="cbp_tmicon fa fa-angellist"> -->
+										<img src="images/phr_web_icon_good.png">
+									</div>
+									<div class="cbp_tmlabel">
+										<div class="s_title">
+											<a href="#" class="s_rightBtn" name="s_menu_it"><span
+													class="fa fa-chevron-down"></span></a>
+											<h5><span class="icon-data-science"></span>2020.7.23 16:43 양호 이상음이 감지되지않았습니다.</h5>
+			
+										</div>
+										<div id="s_menu_it" style="display: none;">
+											정상
+										</div>
+			
+									</div>
+								</li>
+			
+								<li>
+									<div class="cbp_tmicon">
+										<!-- <div class="cbp_tmicon fa fa-angellist"> -->
+										<img src="images/phr_web_icon_warning.png">
+									</div>
+									<div class="cbp_tmlabel">
+										<div class="s_title">
+											<a href="#" class="s_rightBtn" name="s_menu_it"><span
+													class="fa fa-chevron-down"></span></a>
+											<h5><span class="icon-data-science"></span>2020.9.13 13:34 주의 S3 이상음이 감지됩니다.</h5>
+			
+										</div>
+										<div id="s_menu_it" style="display: none;">
+											<div class="row d-flex justify-content-around px-2">
+												<div class="s_menu_it_data">판막질환 확률 78%</div>
+												<div class="s_menu_it_data">부정맥 확률 21%</div>
+												<div class="s_menu_it_data">심부전 확률 5%</div>
+												<div class="s_menu_it_data">관상동맥질환 확률 5%</div>
+											</div>
+											<div class="s_menu_it_msg">이런 청진음은 판막질환 유병자의 심장청진음에서 자주 관찰됩니다. 측정 위치를 확인하시고
+												재측정후에도 같은 결과가 나온다면 전문 의료진과 상담하세요.
+											</div>
+											<div class="float-left pl-3">
+												<div class="s_menu_it_data2">상태1</div>
+												<div class="s_menu_it_data2">상태2</div>
+												<div class="s_menu_it_data2">흉부통근 숨막힘 답답함 기침 콧물 흉부통근 숨막힘 답답함 기침 콧 흉부통근 숨막힘 답답함
+													기침 콧물</div>
+												<div class="s_menu_it_data2">상태4</div>
+												<div class="s_menu_it_data2">상태5</div>
+												<div class="s_menu_it_data2">상태6</div>
+											</div>
+											<div class="pl-3">
+												<div class="s_menu_it_data2 m-t-25">심박 72</div>
+												<div id="waveform"></div>
+												<button onclick="wavesurfer.play()">Play</button>
+												<button onclick="wavesurfer.pause()">Pause</button>
+												<button onclick="wavesurfer.stop()">Stop</button>
+												<button onclick="wavesurfer.playPause()">Play/Pause</button>
+											</div>
+			
+										</div>
+									</div>
+								</li>
+			
+								<li>
+									<div class="cbp_tmicon">
+										<!-- <div class="cbp_tmicon fa fa-angellist"> -->
+										<img src="images/phr_web_icon_danger.png">
+									</div>
+									<div class="cbp_tmlabel">
+										<div class="s_title">
+											<a href="#" class="s_rightBtn" name="s_menu_it"><span
+													class="fa fa-chevron-down"></span></a>
+											<h5><span class="icon-data-science"></span>위험</h5>
+			
+										</div>
+										<div id="s_menu_it" style="display: none;">Parsnip lotus root celery yarrow
+											seakale tomato
+											collard
+											greens tigernut epazote ricebean melon tomatillo soybean chicory broccoli
+											beet greens
+											peanut
+											salad. Lotus root burdock bell alad. Lotus root burdock bell pepper
+											chickweed shallot groundnut pea sprouts welsh
+											onion
+											wattle seed pea salsify turnip scallion peanut arugula bamboo shoot onion
+											swiss chard.
+											Avocado tomato peanut soko amaranth grape fennel chickweed mung bean soybean
+											endive
+											squash
+											beet greens carrot chicory green bean. Tigernutpepper chickweed shallot
+											groundnut pea sprouts welsh
+											onion
+											wattle seed pea salsify turnip scallion peanut arugula bamboo shoot onion
+											swiss chard.
+										</div>
+									</div>
+								</li>
+			
+								<li>
+									<div class="cbp_tmicon">
+										<!-- <div class="cbp_tmicon fa fa-angellist"> -->
+										<!-- <img src="images/phr_web_icon_qna.png"> -->
+										<div class="spinner-grow spinner-grow-sm text-danger" role="status">
+											<span class="sr-only">Loading...</span>
+										</div>
+									</div>
+									<div class="cbp_tmlabel">
+										<div class="s_title">
+											<a href="#" class="s_rightBtn" name="s_menu_it"><span
+													class="fa fa-chevron-down"></span></a>
+											<h5><span class="icon-data-science"></span>bootstrap spinner test</h5>
+			
+										</div>
+										<div id="s_menu_it" style="display: none;">Parsnip lotus root celery yarrow
+											seakale tomato
+											collard
+											greens tigernut epazote ricebean melon tomatillo soybean chicory broccoli
+											beet greens
+											peanut
+											salad. Lotus root burdock bell pepper chickweed shallot groundnut pea
+											sprouts welsh
+											onionalad. Lotus root burdock bell pepper chickweed shallot groundnut pea
+											sprouts welsh
+											onion
+											wattle seed pea salsify turnip scallion peanut arugula bamboo shoot onion
+											swiss chard.
+											Avocado tomato peanut soko amaranth grape fennel chickweed mung bean soybean
+											endive
+											squash
+											beet greens carrot chicory green bean. Tigernut
+											wattle seed pea salsify turnip scallion peanut arugula bamboo shoot onion
+											swiss chard.
+										</div>
+									</div>
+								</li>
+			
+								<li>
+									<div class="cbp_tmicon">
+										<!-- <div class="cbp_tmicon fa fa-angellist"> -->
+										<img src="images/phr_web_icon_qna.png">
+									</div>
+									<div class="cbp_tmlabel">
+										<div class="s_title">
+											<a href="#" class="s_rightBtn" name="s_menu_it"><span
+													class="fa fa-chevron-down"></span></a>
+											<h5><span class="icon-data-science"></span>시간 제목</h5>
+			
+										</div>
+										<div id="s_menu_it" style="display: none;">Parsnip lotus root celery yarrow
+											seakale tomato
+											collard
+											greens tigernut epazote ricebalad. Lotus root burdock bell pepper chickweed
+											shallot groundnut pea sprouts welsh
+											onion
+											wattle seed pea salsify turnip scallion peanut arugula bamboo shoot onion
+											swiss chard.
+											Avocado tomato peanut soko amaranth grape fennel chickweed mung bean soybean
+											endive
+											squash
+											beet greens carrot chicory green bean. Tigernutean melon tomatillo soybean
+											chicory broccoli beet greens
+											peanut
+											salad. Lotus root burdock bell pepper chickweed shallot groundnut pea
+											sprouts welsh
+											onion
+											wattle seed pea salsify turnip scallion peanut arugula bamboo shoot onion
+											swiss chard.
+										</div>
+									</div>
+								</li>
+			
+							</ul>
+			
+						</div>
+			
+						<!-- 메뉴2 내용-->
+						<!-- 리포트 -->
+						<div class="tab_box fs-15">
+			
+							<div>고객에게 발송된 지난 달의 리포트를 조회합니다.</div> <!-- 상단 출력 메시지 -->
+							<!-- 한 번만 출력-->
+			
+							<p>
+							<div class="p-4" style="background-color:#bacede;">
+								<!-- 월 별 분석 리포트(하나의 레이아웃(틀)) -->
+								<div class="fs-18">
+									<!-- 월 분석 리포트 + 날짜 -->
+									<span>9월 분석 리포트</span>
+									<span class="pl-3">2020.9.1 - 2020.9.30</span>
+								</div>
+								<div class="m-t-20 p-l-2">
+									<!-- 총 측정횟수 + 평균 심박 -->
+									<span>총 측정횟수</span>
+									<span>10회</span>
+									<span class="pl-4">평균 심박</span>
+									<span>98bpm</span>
+								</div>
+								<div class="m-t-15">
+									<!-- 심장질환 '관심 및 '주의' 발견과 그 옆 직선 -->
+									<div class="hr-sect">심장질환 '관심 및 '주의' 발견</div>
+								</div>
+								<div class="m-t-10">
+									<!-- 이미지와 횟수 내용 -->
+									<div class="row">
+										<div class="row pl-3">
+											<!-- 첫번째 이미지(판막질환 IMG)와 횟수표시 -->
+											<img src="images/phr_web_icon_heartlog.png">
+											<div>
+												<table class="table table-borderless">
+													<tr>
+														<th>주의</th>
+														<td>3회</td>
+													</tr>
+													<tr>
+														<th>관심</th>
+														<td>1회</td>
+													</tr>
+													<tr>
+														<th>양호</th>
+														<td>6회</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="row pl-5">
+											<!-- 두번째 이미지(심부전증 IMG)와 횟수표시 -->
+											<img src="images/phr_web_icon_heartlog.png">
+											<div>
+												<table class="table table-borderless">
+													<tr>
+														<th>주의</th>
+														<td>3회</td>
+													</tr>
+													<tr>
+														<th>관심</th>
+														<td>1회</td>
+													</tr>
+													<tr>
+														<th>양호</th>
+														<td>6회</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="row pl-5">
+											<!-- 세번째 이미지(심근경색 IMG)와 횟수표시 -->
+											<img src="images/phr_web_icon_heartlog.png">
+											<div>
+												<table class="table table-borderless">
+													<tr>
+														<th>주의</th>
+														<td>3회</td>
+													</tr>
+													<tr>
+														<th>관심</th>
+														<td>1회</td>
+													</tr>
+													<tr>
+														<th>양호</th>
+														<td>6회</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="row pl-5">
+											<!-- 네번째 이미지(관상동맥질환 IMG)와 횟수표시 -->
+											<img src="images/phr_web_icon_heartlog.png">
+											<div>
+												<table class="table table-borderless">
+													<tr>
+														<th>주의</th>
+														<td>3회</td>
+													</tr>
+													<tr>
+														<th>관심</th>
+														<td>1회</td>
+													</tr>
+													<tr>
+														<th>양호</th>
+														<td>6회</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							</p>
+			
+							<p>
+							<div class="p-4" style="background-color:#bacede;">
+								<!-- 월 별 분석 리포트(하나의 레이아웃(틀)) -->
+								<div class="fs-18">
+									<!-- 월 분석 리포트 + 날짜 -->
+									<span>9월 분석 리포트</span>
+									<span class="pl-3">2020.9.1 - 2020.9.30</span>
+								</div>
+								<div class="m-t-20 p-l-2">
+									<!-- 총 측정횟수 + 평균 심박 -->
+									<span>총 측정횟수</span>
+									<span>10회</span>
+									<span class="pl-4">평균 심박</span>
+									<span>98bpm</span>
+								</div>
+								<div class="m-t-15">
+									<!-- 심장질환 '관심 및 '주의' 발견과 그 옆 직선 -->
+									<div class="hr-sect">심장질환 '관심 및 '주의' 발견</div>
+								</div>
+								<div class="m-t-10">
+									<!-- 이미지와 횟수 내용 -->
+									<div class="row">
+										<div class="row pl-3">
+											<!-- 첫번째 이미지(판막질환 IMG)와 횟수표시 -->
+											<img src="images/phr_web_icon_heartlog.png">
+											<div>
+												<table class="table table-borderless">
+													<tr>
+														<th>주의</th>
+														<td>3회</td>
+													</tr>
+													<tr>
+														<th>관심</th>
+														<td>1회</td>
+													</tr>
+													<tr>
+														<th>양호</th>
+														<td>6회</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="row pl-5">
+											<!-- 두번째 이미지(심부전증 IMG)와 횟수표시 -->
+											<img src="images/phr_web_icon_heartlog.png">
+											<div>
+												<table class="table table-borderless">
+													<tr>
+														<th>주의</th>
+														<td>3회</td>
+													</tr>
+													<tr>
+														<th>관심</th>
+														<td>1회</td>
+													</tr>
+													<tr>
+														<th>양호</th>
+														<td>6회</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="row pl-5">
+											<!-- 세번째 이미지(심근경색 IMG)와 횟수표시 -->
+											<img src="images/phr_web_icon_heartlog.png">
+											<div>
+												<table class="table table-borderless">
+													<tr>
+														<th>주의</th>
+														<td>3회</td>
+													</tr>
+													<tr>
+														<th>관심</th>
+														<td>1회</td>
+													</tr>
+													<tr>
+														<th>양호</th>
+														<td>6회</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="row pl-5">
+											<!-- 네번째 이미지(관상동맥질환 IMG)와 횟수표시 -->
+											<img src="images/phr_web_icon_heartlog.png">
+											<div>
+												<table class="table table-borderless">
+													<tr>
+														<th>주의</th>
+														<td>3회</td>
+													</tr>
+													<tr>
+														<th>관심</th>
+														<td>1회</td>
+													</tr>
+													<tr>
+														<th>양호</th>
+														<td>6회</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							</p>
+			
+							<p>
+							<div class="p-4" style="background-color:#bacede;">
+								<!-- 월 별 분석 리포트(하나의 레이아웃(틀)) -->
+								<div class="fs-18">
+									<!-- 월 분석 리포트 + 날짜 -->
+									<span>9월 분석 리포트</span>
+									<span class="pl-3">2020.9.1 - 2020.9.30</span>
+								</div>
+								<div class="m-t-20 p-l-2">
+									<!-- 총 측정횟수 + 평균 심박 -->
+									<span>총 측정횟수</span>
+									<span>10회</span>
+									<span class="pl-4">평균 심박</span>
+									<span>98bpm</span>
+								</div>
+								<div class="m-t-15">
+									<!-- 심장질환 '관심 및 '주의' 발견과 그 옆 직선 -->
+									<div class="hr-sect">심장질환 '관심 및 '주의' 발견</div>
+								</div>
+								<div class="m-t-10">
+									<!-- 이미지와 횟수 내용 -->
+									<div class="row">
+										<div class="row pl-3">
+											<!-- 첫번째 이미지(판막질환 IMG)와 횟수표시 -->
+											<img src="images/phr_web_icon_heartlog.png">
+											<div>
+												<table class="table table-borderless">
+													<tr>
+														<th>주의</th>
+														<td>3회</td>
+													</tr>
+													<tr>
+														<th>관심</th>
+														<td>1회</td>
+													</tr>
+													<tr>
+														<th>양호</th>
+														<td>6회</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="row pl-5">
+											<!-- 두번째 이미지(심부전증 IMG)와 횟수표시 -->
+											<img src="images/phr_web_icon_heartlog.png">
+											<div>
+												<table class="table table-borderless">
+													<tr>
+														<th>주의</th>
+														<td>3회</td>
+													</tr>
+													<tr>
+														<th>관심</th>
+														<td>1회</td>
+													</tr>
+													<tr>
+														<th>양호</th>
+														<td>6회</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="row pl-5">
+											<!-- 세번째 이미지(심근경색 IMG)와 횟수표시 -->
+											<img src="images/phr_web_icon_heartlog.png">
+											<div>
+												<table class="table table-borderless">
+													<tr>
+														<th>주의</th>
+														<td>3회</td>
+													</tr>
+													<tr>
+														<th>관심</th>
+														<td>1회</td>
+													</tr>
+													<tr>
+														<th>양호</th>
+														<td>6회</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="row pl-5">
+											<!-- 네번째 이미지(관상동맥질환 IMG)와 횟수표시 -->
+											<img src="images/phr_web_icon_heartlog.png">
+											<div>
+												<table class="table table-borderless">
+													<tr>
+														<th>주의</th>
+														<td>3회</td>
+													</tr>
+													<tr>
+														<th>관심</th>
+														<td>1회</td>
+													</tr>
+													<tr>
+														<th>양호</th>
+														<td>6회</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							</p>
+			
+			
+						</div>
+			
+						<!-- 메뉴3 내용-->
+						<!-- QnA -->
+						<div class="tab_box" style="font-size:1.3em;">
+							<div class="row d-flex justify-content-end">
+								<!-- 상단 알림(출력) 메시지 -->
+								<div>답변완료</div>
+								<div class="px-4">3건</div>
+								<div class="verticalLine pl-4"></div> <!-- 세로줄-->
+								<div>미응답</div>
+								<div class="px-4">2건</div>
+							</div>
+			
+							<!-- QnA(하나의 레이아웃(틀)) 내용+답변 -->
+			
+							<!-- 내용 -->
+							<% qnas.forEach(function(val){ %>
+							<p>
+							<div class="p-4" style="background-color:#bacede;">
+								<div>
+									<div class="row pl-4">
+										<div>
+											<!-- 날짜 + 시간-->
+											<%= val.createdAt %>
+										</div>
+										<div class="pl-3">
+											<!-- 상태표시창 -->
+											미답변
+										</div>
+									</div>
+			
+									<p>
+									<div id="SynopsisDiv" class="SynopsisText">
+			
+										<!--문의하기 내용 -->
+										<%= val.content %>
+			
+									</div>
+									</p>
+			
+									<!-- <button type="button" class="reply_btn btn btn-secondary btn-lg">답장하기</button> -->
+			
+			
+									<!--말 줄임표-->
+									<a class="btn_more" href="#" id="synopMore">더보기</a>
+									<input name="hidTempSynopsis" type="hidden" id="hidTempSynopsis" value="0">
+			
+									<!-- 답장하기 버튼 -->
+									<div>
+										<button type="button" class="btn_reply btn btn-secondary btn-lg">답장하기</button>
+										<!-- 답장하기 버튼 클릭 시 답변area -->
+										<p></p>
+										<div id="replyarea" style="display:none;">
+											<textarea placeholder="취소를 누르면 입력창이 사라집니다."
+												style="width:100%; background-color:#bacede"></textarea>
+											<div class="d-flex justify-content-end">
+												<span><button type="button"
+														class="btn_cancel btn btn-secondary btn-lg">취소</button></span>
+												<span class="p-l-20"><button type="button"
+														class="btn_submit btn btn-secondary btn-lg">완료</button></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							</p>
+			
+							<% }); %>
+							<!-- QnA 레이아웃 e-->
+			
+						</div> <!-- QnA 탭 e -->
+			
+					</div> <!-- tab_box_container e -->
+				</div> <!-- tab_wrap e -->
+			</div>
+		</div>
+	</div>
+
+	<div id="left4">
+		<div class="inner">
+			<div class="memo">
+				<label for="exampleFormControlTextarea1">메모</label>
+			</div>
+			<div class="form-group pt-4">
+				<textarea class="form-control" placeholder="메모를 입력하세요." id="exampleFormControlTextarea1" rows="30" style="background-color:rgb(241,235,246); border:none; "></textarea>
+			</div>
+			<div class="d-flex justify-content-center pt-3">
+				<button type="button" class="btn btn-secondary">청진기록 내보내기(CSV)</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/index.js"></script>
+</body>
+
+</html>

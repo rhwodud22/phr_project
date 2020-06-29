@@ -1,0 +1,20 @@
+[
+    {
+        "no": "1",
+        "createdAt": "2020-05-21",
+        "os": "Android",
+        "version": "1.0.1",
+        "selectOption": "필수",
+        "content": "-쾌적한 사용을 위해 버그를 수정하였습니다. -신규 기능 추가",
+        "user_name":"휴레이운영자"
+    },
+    {
+        "no": "2",
+        "createdAt": "2020-05-20",
+        "os": "Android",
+        "version": "1.0.1",
+        "selectOption": "선택",
+        "content": "-쾌적한 사용을 위해 버그를 수정하였습니다.",
+        "user_name":"휴레이운영자"  
+    }
+]

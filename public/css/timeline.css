@@ -1,0 +1,98 @@
+.cbp_tmtimeline {
+	margin: 0 0 0 0;
+	padding: 0 10px;
+	list-style: none;
+	position: relative;
+} 
+
+/* The line */
+.cbp_tmtimeline:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 5px;
+	background: #bacede;
+	left: 5%;
+	margin-left: 0px;
+}
+
+/* The date/time */
+.cbp_tmtimeline > li {
+	position: relative;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime {
+	display: block;
+	width: 25%;
+	padding-right: 100px;
+	position: absolute;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span {
+	display: block;
+	text-align: right;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span:first-child {
+	font-size: 0.9em;
+	color: #b4b4b4;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+	font-size: 2.9em;
+	color: #b4b4b4;
+}
+
+
+/* Right content */
+.cbp_tmtimeline > li .cbp_tmlabel {
+	margin: 0 0 15px 10%;
+	background: #c7dded;
+	color: #000; /* 글씨 색 */
+	padding: 10px 1em;
+	font-size: 1.2em;
+	font-weight: 300;
+	line-height: 1.4;
+	position: relative;
+	border-radius: 5px;
+}
+
+.cbp_tmtimeline > li .cbp_tmlabel h2 { 
+	margin-top: 0px;
+	padding: 0 0 10px 0;
+	border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+/* The icons */
+.cbp_tmtimeline > li .cbp_tmicon {
+	width: 30px;
+	height: 30px;
+    font-family: 'FontAwesome';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	font-size: 1.2em;
+	line-height: 30px;
+	-webkit-font-smoothing: antialiased;
+	position: absolute;
+	color: #fff;
+	background: #7a90a0;
+	border-radius: 50%;
+	/* box-shadow: 0 0 0 8px #afdcf8; */
+	text-align: center;
+	left: 5%;
+	top: 15%;
+	margin: 0 0 0 -23px;
+}
+
+
+/* //////////////////// */
+a.s_rightBtn{
+    float: right; 
+    width: 30px; 
+    text-align: right; 
+	margin-right:6px;
+}
